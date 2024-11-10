@@ -1,0 +1,19 @@
+<div class="content-aplication">
+    <div class="header-admin">
+        <app-header-admin (toggleMenuEvent)="toggleMenu()"></app-header-admin>
+    </div>
+    <div class="content-admin">
+        <div class="menu-admin" [@slideInOut]="menuState"
+            [style.box-shadow]="menuState === 'out' ? 'none !important' : '0px 0px 100px 20px rgba(230, 230, 230, 1)'">
+            <app-menu-admin (triggerMenu)="selectOpc($event)"></app-menu-admin>
+        </div>
+        <div class="navegate-admin" [@expand]="menuState">
+            <div class="w-100">
+                <router-outlet />
+                <div class="footer-admin">
+                    <app-footer-admin></app-footer-admin>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

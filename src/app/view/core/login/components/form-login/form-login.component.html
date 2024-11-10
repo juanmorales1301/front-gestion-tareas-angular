@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <h2 class="mb-5 w-100 text-center">Iniciar Sesión</h2>
+
+    <mdb-form-control class="mb-5">
+        <input mdbInput type="email" id="username" class="form-control" formControlName="username" />
+        <label mdbLabel class="form-label" for="username">Usuario</label>
+    </mdb-form-control>
+
+    <mdb-form-control class="mb-5">
+        <input mdbInput type="password" id="password" class="form-control" formControlName="password" />
+        <label mdbLabel class="form-label" for="password">Contraseña</label>
+    </mdb-form-control>
+
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+            <div class="form-check">
+                <input mdbCheckbox class="form-check-input" type="checkbox" value="" id="recuerdame" checked />
+                <label class="form-check-label" for="recuerdame"> Recuerdame </label>
+            </div>
+        </div>
+
+        <div class="col">
+            <a class="link-registro" (click)="setRegistro.emit(true)">Crear nuevo usuario</a>
+        </div>
+    </div>
+
+    <button mdbRipple type="submit" class="btn btn-primary btn-block">Ingresar</button>
+</form>

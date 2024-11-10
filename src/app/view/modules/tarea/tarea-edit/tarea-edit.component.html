@@ -1,0 +1,99 @@
+<!-- src/app/components/tarea-form/tarea-form.component.html -->
+
+<form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
+    <h2 class="mb-5 w-100 text-center">{{ editing ? 'Actualizar Tarea' : 'Crear Tarea' }}</h2>
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="text" id="titulo" class="form-control" formControlName="titulo" />
+        <label mdbLabel class="form-label" for="titulo">Título</label>
+    </mdb-form-control>
+    @if(tareaForm.controls['titulo'].invalid && tareaForm.controls['titulo'].touched){
+    <div class="text-danger">
+        El título es obligatorio y debe tener máximo 255 caracteres.
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <textarea mdbInput id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+        <label mdbLabel class="form-label" for="descripcion">Descripción</label>
+    </mdb-form-control>
+    @if(tareaForm.controls['descripcion'].invalid && tareaForm.controls['descripcion'].touched){
+    <div class="text-danger">
+        La descripción es obligatoria.
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="date" id="fecha_inicio" class="form-control" formControlName="fecha_inicio" />
+        <label mdbLabel class="form-label" for="fecha_inicio">Fecha de Inicio</label>
+    </mdb-form-control>
+    @if(tareaForm.controls['fecha_inicio'].invalid && tareaForm.controls['fecha_inicio'].touched){
+    <div class="text-danger">
+        La fecha de inicio es obligatoria.
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="date" id="fecha_vencimiento" class="form-control" formControlName="fecha_vencimiento" />
+        <label mdbLabel class="form-label" for="fecha_vencimiento">Fecha de Vencimiento</label>
+    </mdb-form-control>
+    @if(tareaForm.controls['fecha_vencimiento'].invalid && tareaForm.controls['fecha_vencimiento'].touched){
+    <div class="text-danger">
+        La fecha de vencimiento es obligatoria.
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <label mdbLabel class="form-label" for="prioridad">Prioridad</label>
+        <select class="form-select" id="prioridad" formControlName="prioridad">
+            <option value="" disabled selected>Seleccione Prioridad</option>
+            <option *ngFor="let prioridad of prioridades" [value]="prioridad.value">{{ prioridad.viewValue }}</option>
+        </select>
+    </mdb-form-control>
+    @if(tareaForm.controls['prioridad'].invalid && tareaForm.controls['prioridad'].touched){
+    <div class="text-danger">
+        La prioridad es obligatoria
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <label mdbLabel class="form-label" for="estado">Estado</label>
+        <select class="form-select" id="estado" formControlName="estado">
+            <option value="" disabled selected>Seleccione Estado</option>
+            <option *ngFor="let estado of estados" [value]="estado.value">{{ estado.viewValue }}</option>
+        </select>
+    </mdb-form-control>
+    @if(tareaForm.controls['estado'].invalid && tareaForm.controls['estado'].touched){
+    <div class="text-danger">
+        El estado es obligatorio.
+    </div>
+    }
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="text" id="categoria" class="form-control" formControlName="categoria" />
+        <label mdbLabel class="form-label" for="categoria">Categoría</label>
+    </mdb-form-control>
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="text" id="tiempo_estimado" class="form-control" formControlName="tiempo_estimado" />
+        <label mdbLabel class="form-label" for="tiempo_estimado">Tiempo Estimado</label>
+    </mdb-form-control>
+
+    <mdb-form-control class="mt-4">
+        <input mdbInput type="text" id="tags" class="form-control" formControlName="tags" />
+        <label mdbLabel class="form-label" for="tags">Tags</label>
+    </mdb-form-control>
+    @if(tareaForm.controls['tags'].invalid && tareaForm.controls['tags'].touched){
+    <div class="text-danger">
+        Los tags son obligatorios.
+    </div>
+    }
+
+    <button mdbRipple type="submit" class="btn btn-primary btn-block mt-4" [disabled]="tareaForm.invalid">
+        {{ editing ? 'Actualizar' : 'Crear' }}
+    </button>
+
+    <button mdbRipple type="button" class="btn btn-secondary btn-block mt-3" (click)="resetForm()">
+        Cancelar
+    </button>
+</form>

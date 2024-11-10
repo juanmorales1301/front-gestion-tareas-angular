@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+
+*,
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: rgb(33, 97, 140);
+    --color-primario-texto: rgb(255, 255, 255);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

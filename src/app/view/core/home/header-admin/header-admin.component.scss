@@ -1,0 +1,26 @@
+.contenido-header {
+    width: 100%;
+    background-color: var(--color-primario);
+    color: var(--color-primario-texto);
+    display: flex;
+    flex-wrap: wrap;
+
+    .options {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .item-action {
+        padding: 0.4rem 0.6rem;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .item-action:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}

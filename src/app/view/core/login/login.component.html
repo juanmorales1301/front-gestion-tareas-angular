@@ -1,0 +1,11 @@
+<div class="contenido-login">
+    <div class="content-tarjeta">
+        <div class="form-tarjeta">
+            @if(isRegistro){
+                <app-form-registro></app-form-registro>
+            }@else {
+                <app-form-login (setRegistro)="changeRegistro($event)"></app-form-login>
+            }
+        </div>
+    </div>
+</div>

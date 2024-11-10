@@ -1,0 +1,42 @@
+<div class="container mt-5 pb-5">
+    <h2 class="mb-4">Tareas Próximas a Vencer</h2>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let tarea"> {{ tarea.id }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titulo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+                <td mat-cell *matCellDef="let tarea"> {{ tarea.titulo }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+                <td mat-cell *matCellDef="let tarea"> {{ tarea.descripcion }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha_vencimiento">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Vencimiento </th>
+                <td mat-cell *matCellDef="let tarea">
+                    {{ tarea.fecha_vencimiento | date: 'short' }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="estado">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                <td mat-cell *matCellDef="let tarea"> {{ tarea.estado | titlecase }} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+</div>

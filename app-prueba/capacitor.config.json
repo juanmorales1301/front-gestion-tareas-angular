@@ -1,0 +1,10 @@
+{
+  "appId": "com.juan.prueba",
+  "appName": "app-angular-capacitor",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

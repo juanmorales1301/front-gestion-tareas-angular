@@ -1,0 +1,21 @@
+<form [formGroup]="registroForm" (ngSubmit)="registroUsuario()">
+    <h2 class="mb-5 w-100 text-center">Registar Usuario</h2>
+
+    <mdb-form-control class="mb-4">
+        <input mdbInput type="email" id="correo" class="form-control" formControlName="email" />
+        <label mdbLabel class="form-label" for="correo">Correo</label>
+    </mdb-form-control>
+
+    <mdb-form-control class="mb-4">
+        <input mdbInput type="text" id="username" class="form-control" formControlName="username" />
+        <label mdbLabel class="form-label" for="username">Usuario</label>
+    </mdb-form-control>
+
+    <mdb-form-control class="mb-4">
+        <input mdbInput type="password" id="password" class="form-control" formControlName="password" />
+        <label mdbLabel class="form-label" for="password">Contraseña</label>
+    </mdb-form-control>
+
+    <button mdbRipple type="submit" class="btn btn-primary btn-block mb-4">Registrame</button>
+
+</form>

@@ -1,0 +1,14 @@
+<div class="contenido-menu">
+    <div class="items-menu">
+        @for (item of menuAdmin; track $index) {
+        <div class="item" (click)="abrirRuta(item.ruta)">
+            <div class="icono">
+                <i class="{{item.icono}}"></i>
+            </div>
+            <div class="texto">
+                {{item.texto}}
+            </div>
+        </div>
+        }
+    </div>
+</div>
